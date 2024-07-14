@@ -46,7 +46,7 @@
                                     <p>{{ $product->description }}</p>
                                 </div>
                             </td>
-                            <td class="px-6 py-4">{{ $product->harga }}</td>
+                            <td class="px-6 py-4">Rp. {{ number_format($product->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">{{ $product->tanggal_produksi }}</td>
                             <td class="px-6 py-4">{{ $product->stok }}</td>
                             <td class="px-6 py-4">
