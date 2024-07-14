@@ -36,12 +36,12 @@
                                 </path>
                             </svg>
                         </button>
-                        <a href="/" class="flex ms-2 gap-3 md:me-24 items-center">
-                            <img src="{{ asset('assets/images/logo-nadia-collection.png') }}"
-                                class="h-12 w-12 rounded-full" alt="">
-                            <span
-                                class="self-center text-xl text-primary font-semibold sm:text-2xl whitespace-nowrap ">Nadia
-                                Collection</span>
+                        <a href="/" class="flex ms-2 gap-3 md:me-24 items-center -ml-7">
+                            <img src="{{ asset('assets/images/logo-belle.png') }}" class="h-20 rounded-full"
+                                alt="">
+                            {{-- <span
+                                class="self-center text-xl text-primary font-semibold sm:text-2xl whitespace-nowrap ">Belle
+                                Panel Admin</span> --}}
                         </a>
                     </div>
                     <div class="flex items-center">
@@ -69,7 +69,7 @@
                                 </div>
                                 <ul class="py-1" role="none">
                                     <li>
-                                        <a href="{{ route('admin.dashboard') }}"
+                                        <a href="#"
                                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100   "
                                             role="menuitem">Dashboard</a>
                                     </li>
@@ -95,8 +95,8 @@
             class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0  "
             aria-label="Sidebar">
             <div class="h-full px-3 pb-4 overflow-y-auto bg-white ">
-                <ul class="space-y-2 font-medium">
-                    <li>
+                <ul class="space-y-2 font-medium mt-10">
+                    {{-- <li>
                         <a href="{{ route('admin.dashboard') }}"
                             class="flex items-center p-2 text-gray-500 rounded-lg  hover:bg-gray-100  group">
                             <i
@@ -105,19 +105,28 @@
 
                             <span class="ms-3">Dashboard</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href="{{ route('admin.hasil-produksi') }}"
+                        <a href="{{ route('admin.products') }}"
                             class="flex items-center p-2 text-gray-500 rounded-lg  hover:bg-gray-100  group">
                             <i
                                 class='bx bx-shopping-bag flex-shrink-0 w-5 h-5 text-primary transition duration-75   text-xl '></i>
 
-                            <span class="flex-1 ms-3 whitespace-nowrap">Hasil Produksi</span>
+                            <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
 
                         </a>
                     </li>
-                    @dd(Auth::guard('admin')->user()->role)
-                    @if (Auth::guard('admin')->user()->role == 'Admin')
+                    <li>
+                        <a href="{{ route('admin.categories') }}"
+                            class="flex items-center p-2 text-gray-500 rounded-lg  hover:bg-gray-100  group">
+                            <i
+                                class='bx bx-category flex-shrink-0 w-5 h-5 text-primary transition duration-75   text-xl '></i>
+
+                            <span class="flex-1 ms-3 whitespace-nowrap">Categories</span>
+
+                        </a>
+                    </li>
+                    {{-- @if (Auth::guard('admin')->user()->role == 'Admin')
                         <li>
                             <a href="{{ route('admin.bahan-mentah') }}"
                                 class="flex items-center p-2 text-gray-500 rounded-lg  hover:bg-gray-100  group ">
@@ -148,7 +157,7 @@
                                 <span class="flex-1 ms-3 whitespace-nowrap">User</span>
                             </a>
                         </li>
-                    @endif
+                    @endif --}}
 
 
                 </ul>
@@ -163,9 +172,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
-    <script>
+    {{-- <script>
         AOS.init();
-    </script>
+    </script> --}}
 </body>
 
 </html>
