@@ -56,8 +56,8 @@
                                         <p class="font-medium text-lg">{{ $product->nama_produk }}</p>
                                         <p>{{ $product->description }}</p>
                                         <p><strong>Harga:</strong> Rp. {{ number_format($product->harga, 0, ',', '.') }}</p>
-                                        <p><strong>Tanggal Produksi:</strong> {{ $product->tanggal_produksi }}</p>
-                                        <p><strong>Stok:</strong> {{ $product->stok }}</p>
+                                        {{-- <p><strong>Tanggal Produksi:</strong> {{ $product->tanggal_produksi }}</p>
+                                        <p><strong>Stok:</strong> {{ $product->stok }}</p> --}}
                                         <p><strong>Category:</strong> {{ $product->category->nama }}</p>
                                     </div>
                                 </div>
