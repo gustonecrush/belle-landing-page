@@ -8,8 +8,9 @@
             <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-8">
                 <a href="" class="text-white text-4xl">LOGO BELLE</a>
                 <ul class="text-white flex text-lg gap-9 font-medium tracking-tight">
-                    <li>Home</li>
-                    <li>Products</li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">
+                            Products</a></li>
                     <li>About Us</li>
                     <li>Contact Us</li>
                 </ul>

@@ -1,5 +1,5 @@
 @extends('layouts.main', [
-    'title' => 'Belle -  Belanja kosmetik dan alat kecantikan, terpercaya, dan terjamin kualitasnya!',
+    'title' => 'Belle - Belanja kosmetik dan alat kecantikan, terpercaya, dan terjamin kualitasnya!',
 ])
 
 @section('content')
@@ -8,109 +8,68 @@
             <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-8">
                 <a href="" class="text-white text-4xl">LOGO BELLE</a>
                 <ul class="text-white flex text-lg gap-9 font-medium tracking-tight">
-                    <li>Home</li>
-                    <li>Products</li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">
+                            Products</a></li>
                     <li>About Us</li>
                     <li>Contact Us</li>
                 </ul>
             </nav>
         </header>
-        <section class="w-full max-w-5xl mx-auto h-[70vh] flex items-center">
-            <div class="flex flex-col gap-0 flex-1 text-left !justify-start !items-start">
-                <div class="flex flex-col gap-1">
-                    <p class="text-3xl text-primary font-medium">
-                        Skincare Beauty
-                    </p>
-                    <h1 class="text-[5.5rem] leading-[100%] font-extrabold text-primary">
-                        PRODUCT
-                    </h1>
-                    <p class="text-primary font-regular text-base">
-                        Devoted to serving natural beauty, we have poured all of our knowledge & experience to provide
-                        the
-                        best beauty products and detailed services to a variety of consumers. We highly value extended
-                        services to educate and satisfyour customers. Getting to know us means getting to know what you
-                        need.
-                    </p>
-                </div>
-                <a href=""
-                    class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom flex mt-5">
-                    read more
-                </a>
-            </div>
-            <div class="w-full">
-                <img src="{{ asset('assets/images/product.png') }}" class="flex-1" alt="">
-            </div>
-        </section>
         <section class="w-full mx-auto h-fit">
-            <h1 class="text-primary font-extrabold text-4xl text-center py-9">Product Categories</h1>
-            <div class="grid grid-cols-3 gap-0">
-                <div class="w-full h-[300px] relative flex items-center justify-center">
-                    <img class="object-cover w-full h-[300px]" src="{{ asset('assets/images/product-1.jpg') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Skincare
-                    </a>
-                </div>
-                <div class="w-full h-[300px] relative flex items-center justify-center"> <img
-                        class="object-cover w-full h-[300px]" src="{{ asset('assets/images/product-2.jpg') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Puff and brush
-                    </a>
-                </div>
-                <div class="w-full h-[300px] relative flex items-center justify-center">
-                    <img src="{{ asset('assets/images/product-3.webp') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Beauty tools and clinic equipments
-                    </a>
-                </div>
-                <div class="w-full h-[300px] relative flex items-center justify-center">
-                    <img class="object-cover w-full h-[300px]" src="{{ asset('assets/images/product-4.webp') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Salon and clinic support
-                    </a>
-                </div>
-                <div class="w-full h-[300px] relative flex items-center justify-center">
-                    <img class="object-cover w-full h-[300px]" src="{{ asset('assets/images/product-5.jpg') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Beauty packaging
-                    </a>
-                </div>
-                <div class="w-full h-[300px] relative flex items-center justify-center">
-                    <img class="object-cover w-full h-[300px]" src="{{ asset('assets/images/product-6.webp') }}" />
-                    <a href=""
-                        class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto">
-                        Beautypreuneur support
-                    </a>
-                </div>
+            <h1 class="text-primary font-extrabold text-4xl text-center py-9">Products</h1>
+            <div class="grid grid-cols-3 gap-4">
+                @foreach ($products as $product)
+                    <div class="w-full h-[300px] relative flex items-center justify-center">
+                        <img class="object-cover w-full h-full"
+                            src="{{ asset('storage/' . $product->file_foto_produk) }}" />
+                        <button type="button"
+                            class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom absolute bottom-6 mx-auto"
+                            onclick="document.getElementById('productModal_{{ $product->id }}').classList.remove('hidden')">
+                            {{ $product->nama_produk }}
+                        </button>
+
+                        <!-- Modal -->
+                        <div id="productModal_{{ $product->id }}"
+                            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative w-full max-w-lg max-h-full mx-auto">
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <div
+                                        class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                            {{ $product->nama_produk }}
+                                        </h3>
+                                        <button type="button"
+                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                            onclick="document.getElementById('productModal_{{ $product->id }}').classList.add('hidden')">
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="p-6 space-y-6">
+                                        <img src="{{ asset('storage/' . $product->file_foto_produk) }}" alt="Product Image"
+                                            class="w-full h-auto rounded-lg">
+                                        <p class="font-medium text-lg">{{ $product->nama_produk }}</p>
+                                        <p>{{ $product->description }}</p>
+                                        <p><strong>Harga:</strong> {{ $product->harga }}</p>
+                                        <p><strong>Tanggal Produksi:</strong> {{ $product->tanggal_produksi }}</p>
+                                        <p><strong>Stok:</strong> {{ $product->stok }}</p>
+                                        <p><strong>Category:</strong> {{ $product->category->nama }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
             </div>
         </section>
-        <section class="w-full max-w-5xl mx-auto grid grid-cols-4 py-24">
-            <div class="flex flex-col gap-1 items-center justify-center">
-                <img class="w-[200px] !h-[200px]" src="{{ asset('assets/images/product-7.png') }}" />
-                <h4 class="font-bold text-primary">BYOU</h4>
-                <p class="text-primary">Rubber Mask All Variant</p>
-            </div>
-            <div class="flex flex-col gap-1 items-center justify-center">
-                <img class="w-[200px] !h-[200px]" src="{{ asset('assets/images/product-8.png') }}" />
-                <h4 class="font-bold text-primary">ETREBELLE</h4>
-                <p class="text-primary">Golden Skin Caviar 24 Hours</p>
-            </div>
-            <div class="flex flex-col gap-1 items-center justify-center">
-                <img class="w-[200px] !h-[200px]" src="{{ asset('assets/images/product-9.png') }}" />
-                <h4 class="font-bold text-primary">JEAN D'ARCEL</h4>
-                <p class="text-primary">Renewing Face Cream</p>
-            </div>
-            <div class="flex flex-col gap-1 items-center justify-center">
-                <img class="w-[50px] !h-[200px]" src="{{ asset('assets/images/product-10.png') }}" />
-                <h4 class="font-bold text-primary">JEAN D'ARCEL</h4>
-                <p class="text-primary">Dermal Creaming Gel</p>
-            </div>
-        </section>
-        <section class="w-full bg-primary py-20 mb-10"></section>
+
+        <section class="w-full bg-primary py-20 mb-10 mt-8"></section>
         <footer class="w-full max-w-5xl mx-auto">
             <div class="w-full grid grid-cols-3 gap-x-5">
                 <div class="flex flex-col gap-2 flex-1">
@@ -131,17 +90,47 @@
         </footer>
     </main>
 
+    <!-- Product Detail Modal -->
+
+
     <script>
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('bg-white', 'shadow-custom', 'text-gray-800', 'duration-700',
-                    'border-gray-800');
-                header.classList.remove('text-white', 'border-white')
-            } else {
-                header.classList.remove('bg-white', 'shadow-custom', 'text-gray-800', 'border-gray-800');
-                header.classList.add('text-white', 'border-white')
-            }
-        });
+        function openProductModal(productId) {
+            // Fetch product details via API or use data already loaded on the page
+            // For demonstration purpose, I'll just show basic structure
+            const product = {
+                nama_produk: "Product Name",
+                description: "Product Description",
+                harga: "Product Price",
+                tanggal_produksi: "Production Date",
+                stok: "Stock Availability",
+                file_foto_produk: "{{ asset('assets/images/product-placeholder.png') }}", // Placeholder image path
+                category: "Product Category"
+            };
+
+            // Update modal content with product details
+            document.getElementById('productModalTitle').textContent = product.nama_produk;
+            const modalContent = document.getElementById('productModalContent');
+            modalContent.innerHTML = `
+                <div class="flex flex-col gap-2">
+                    <img src="${product.file_foto_produk}" alt="Product Image" class="w-full h-auto rounded-lg">
+                    <p class="font-medium text-lg">${product.nama_produk}</p>
+                    <p>${product.description}</p>
+                    <p><strong>Harga:</strong> ${product.harga}</p>
+                    <p><strong>Tanggal Produksi:</strong> ${product.tanggal_produksi}</p>
+                    <p><strong>Stok:</strong> ${product.stok}</p>
+                    <p><strong>Category:</strong> ${product.category}</p>
+                </div>
+            `;
+
+            // Show the modal
+            const modal = document.getElementById('productModal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            // Close the modal
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+        }
     </script>
 @endsection

@@ -32,6 +32,11 @@ Route::get('/', function () {
     return view('index', compact('products'));
 })->name('index');
 
+Route::get('/products', function () {
+    $products = Product::all();
+    return view('detail', compact('products'));
+})->name('detail');
+
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard/data', [AdminDashboardController::class, 'getData'])->name('admin.dashboard.data');
 
