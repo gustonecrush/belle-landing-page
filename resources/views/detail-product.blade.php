@@ -1,11 +1,11 @@
 @extends('layouts.main', [
-    'title' => 'Belle - Belanja kosmetik dan alat kecantikan, terpercaya, dan terjamin kualitasnya!',
+    'title' => 'Belle -  Belanja kosmetik dan alat kecantikan, terpercaya, dan terjamin kualitasnya!',
 ])
 
 @section('content')
     <main class="w-full h-full bg-white">
         <header class="w-full bg-primary">
-            <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-5">
+            <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-8">
                 <a href="" class="text-white text-4xl"><img src="{{ asset('assets/images/logo-belle-white.png') }}"
                         class="h-14" /></a>
                 <ul class="text-white flex text-lg gap-9 font-medium tracking-tight">
@@ -18,10 +18,71 @@
                 </ul>
             </nav>
         </header>
-        <section class="w-full  h-fit">
-            <h1 class="text-primary font-extrabold text-4xl text-center py-9">Products</h1>
-            <div class="grid grid-cols-5 w-fit mx-auto">
-                @foreach ($products as $index => $product)
+        <div class="container mx-auto p-6 px-14">
+            <div class="text-sm text-gray-600 mt-4">
+                <a href="#" class="hover:underline">Home</a> /
+                <a href="#" class="hover:underline">Products</a> /
+                <a href="#" class="hover:underline">Skin Care</a> /
+                <a href="#" class="hover:underline">BYOU</a> /
+                <span>Glowing Golden Mask</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
+                <div>
+                    <div class="relative w-full h-96">
+                        <img src="/storage/{{ $products->file_foto_produk }}" alt="BYOU Glowing Golden Mask"
+                            class="w-full h-full object-contain rounded-lg shadow-lg">
+                        <div class="absolute inset-y-0 left-0 flex items-center">
+                            <button class="bg-white text-gray-800 hover:bg-gray-200 rounded-full shadow p-2 -ml-4"
+                                aria-label="Previous">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="absolute inset-y-0 right-0 flex items-center">
+                            <button class="bg-white text-gray-800 hover:bg-gray-200 rounded-full shadow p-2 -mr-4"
+                                aria-label="Next">
+                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h1 class="text-3xl font-bold mb-0">{{ $products->nama_produk }}</h1>
+                    <p class="text-gray-700 mb-2">Bahan aktif: Aloe Barbadensis Extract, Hamamelis Virgiana</p>
+                    <div class="flex items-center mb-4">
+                        <span class="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm">350 ml</span>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-4">
+                        <h2 class="text-lg font-semibold mb-2">Catatan</h2>
+                        <p class="text-gray-700 mb-4">
+                            {{ $products->description }}
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <section class="w-full  h-fit px-14">
+            <div>
+                <h1 class="text-3xl font-bold mb-0">PRODUCT RELATED</h1>
+                <p class="text-gray-700 mb-2">Temukan produk dengan kategori serupa untuk menambahkan preferensi
+                    kecantikanmu dari produk Belle Indonesia</p>
+
+                <div class="border-t border-gray-200 pt-4">
+                </div>
+
+            </div>
+            <div class="grid grid-cols-4 w-fit mx-auto gap-5">
+                @foreach ($productsRelated as $index => $product)
                     <div class="flex w-fit h-fit rounded-lg flex-col gap-2">
                         <div class=" rounded-lg relative flex items-center justify-center">
                             <img class="object-cover w-56 h-56 rounded-xl "
@@ -31,7 +92,7 @@
                         </div>
                         <div class="flex gap-2 h-fit flex-col">
                             <a href="/products/{{ $product->id }}"
-                                class="bg-primary w-fit text-white font-medium px-6 py-2 rounded-lg box-shadow-custom  mx-auto">
+                                class="bg-primary w-full text-white font-medium px-6 py-2 rounded-lg box-shadow-custom  mx-auto items-center text-center">
                                 {{ $product->nama_produk }}
                             </a>
 
@@ -75,9 +136,7 @@
 
             </div>
         </section>
-
-        <section class="w-full bg-primary py-20 mb-10 mt-8"></section>
-        <footer class="w-full max-w-5xl mx-auto">
+        {{-- <footer class="w-full max-w-5xl mx-auto">
             <div class="w-full grid grid-cols-3 gap-x-5">
                 <div class="flex flex-col gap-2 flex-1">
                     <p href="" class=" text-4xl text-primary font-bold">BELLE</p>
@@ -94,50 +153,20 @@
                     <img src="{{ asset('assets/images/qrcode.png') }}" class="w-20 h-20" />
                 </div>
             </div>
-        </footer>
+        </footer> --}}
     </main>
 
-    <!-- Product Detail Modal -->
-
-
     <script>
-        function openProductModal(productId) {
-            // Fetch product details via API or use data already loaded on the page
-            // For demonstration purpose, I'll just show basic structure
-            const product = {
-                nama_produk: "Product Name",
-                description: "Product Description",
-                harga: "Product Price",
-                tanggal_produksi: "Production Date",
-                stok: "Stock Availability",
-                file_foto_produk: "{{ asset('assets/images/product-placeholder.png') }}", // Placeholder image path
-                category: "Product Category"
-            };
-
-            // Update modal content with product details
-            document.getElementById('productModalTitle').textContent = product.nama_produk;
-            const modalContent = document.getElementById('productModalContent');
-            modalContent.innerHTML = `
-                <div class="flex flex-col gap-2">
-                    <img src="${product.file_foto_produk}" alt="Product Image" class="w-full h-auto rounded-lg">
-                    <p class="font-medium text-lg">${product.nama_produk}</p>
-                    <p>${product.description}</p>
-                    <p><strong>Harga:</strong> ${product.harga}</p>
-                    <p><strong>Tanggal Produksi:</strong> ${product.tanggal_produksi}</p>
-                    <p><strong>Stok:</strong> ${product.stok}</p>
-                    <p><strong>Category:</strong> ${product.category}</p>
-                </div>
-            `;
-
-            // Show the modal
-            const modal = document.getElementById('productModal');
-            modal.classList.remove('hidden');
-        }
-
-        function closeProductModal() {
-            // Close the modal
-            const modal = document.getElementById('productModal');
-            modal.classList.add('hidden');
-        }
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.add('bg-white', 'shadow-custom', 'text-gray-800', 'duration-700',
+                    'border-gray-800');
+                header.classList.remove('text-white', 'border-white')
+            } else {
+                header.classList.remove('bg-white', 'shadow-custom', 'text-gray-800', 'border-gray-800');
+                header.classList.add('text-white', 'border-white')
+            }
+        });
     </script>
 @endsection

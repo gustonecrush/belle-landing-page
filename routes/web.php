@@ -32,10 +32,26 @@ Route::get('/', function () {
     return view('index', compact('products'));
 })->name('index');
 
+
+Route::get('/about-us', function () {
+    return view('about-us');
+})->name('about-us');
+
+
+Route::get('/contact-us', function () {
+    return view('contact-us');
+})->name('contact-us');
+
 Route::get('/products', function () {
     $products = Product::all();
     return view('detail', compact('products'));
 })->name('detail');
+
+Route::get('/products/{id}', function ($id) {
+    $products = Product::where('id', '=', $id)->with('category')->first();
+    $productsRelated = Product::where('id_category', '=', $products->id_category)->get();
+    return view('detail-product', compact('products', 'productsRelated'));
+})->name('detail-product');
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard/data', [AdminDashboardController::class, 'getData'])->name('admin.dashboard.data');

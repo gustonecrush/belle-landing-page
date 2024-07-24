@@ -23,9 +23,9 @@ class ProductController extends Controller
         $request->validate([
             'nama_produk' => 'required|string|max:255',
             'harga' => 'required|string|max:255',
-            'tanggal_produksi' => 'required|string',
+            'tanggal_kadaluarsa' => 'required|string',
             'stok' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'required',
             'id_category' => 'required',
             'file_foto_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);

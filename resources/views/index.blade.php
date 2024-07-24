@@ -6,14 +6,15 @@
     <main class="w-full h-full bg-white">
         <header class="w-full bg-primary">
             <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-8">
-                <a href="" class="text-white text-4xl">LOGO BELLE</a>
+                <a href="" class="text-white text-4xl"><img src="{{ asset('assets/images/logo-belle-white.png') }}"
+                        class="h-14" /></a>
                 <ul class="text-white flex text-lg gap-9 font-medium tracking-tight">
                     <li><a class="cursor-pointer" href="/">Home</a></li>
                     <li>
                         <a class="cursor-pointer" href="/products">Products</a>
                     </li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <li><a class="cursor-pointer" href="/about-us">About Us</a></li>
+                    <li><a class="cursor-pointer" href="/contact-us">Contact Us</a></li>
                 </ul>
             </nav>
         </header>

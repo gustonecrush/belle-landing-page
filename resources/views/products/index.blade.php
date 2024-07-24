@@ -31,7 +31,6 @@
                         <th scope="col" class="px-6 py-3">Harga</th>
                         <th scope="col" class="px-6 py-3">Tanggal Kadaluarsa</th>
                         <th scope="col" class="px-6 py-3">Stok</th>
-                        <th scope="col" class="px-6 py-3">File Foto Produk</th>
                         <th scope="col" class="px-6 py-3">Category</th>
                         <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
@@ -42,23 +41,25 @@
                             <td class="px-6 py-4">{{ $index + 1 }}</td>
                             <td class="px-6 py-4 ">
                                 <div class="flex flex-col gap-1">
+                                    @if ($product->file_foto_produk)
+                                        <img src="{{ asset('storage/' . $product->file_foto_produk) }}" alt="Foto Produk"
+                                            class="w-28 rounded-md h-28 object-cover">
+                                    @else
+                                        Tidak ada gambar
+                                    @endif
                                     <p class="font-medium text-black">{{ $product->nama_produk }}</p>
-                                    <p>{{ $product->description }}</p>
+                                    <p class="description" id="desc-{{ $product->id }}">
+                                        {{ $product->description }}
+                                    </p>
+
                                 </div>
                             </td>
+
                             <td class="px-6 py-4">Rp. {{ number_format($product->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-4">{{ $product->tanggal_produksi }}</td>
                             <td class="px-6 py-4">{{ $product->stok }}</td>
-                            <td class="px-6 py-4">
-                                @if ($product->file_foto_produk)
-                                    <img src="{{ asset('storage/' . $product->file_foto_produk) }}" alt="Foto Produk"
-                                        class="w-16 h-16 object-cover">
-                                @else
-                                    Tidak ada gambar
-                                @endif
-                            </td>
                             <td class="px-6 py-4">{{ $product->category->nama }}</td>
-                            <td class="px-6 py-4 flex gap-2">
+                            <td class="px-6 py-4  gap-2">
                                 <form action="{{ route('admin.products.delete') }}" method="POST"
                                     onsubmit="return confirm('Are you sure?');">
                                     @csrf
@@ -124,12 +125,12 @@
 
                         <div class="flex gap-2 w-full">
                             <div class="mb-4 w-full">
-                                <label for="tanggal_produksi"
+                                <label for="tanggal_kadaluarsa"
                                     class="block mb-2 font-medium text-gray-500 dark:text-white text-sm">Tanggal Kadaluarsa
                                 </label>
-                                <input type="date" id="tanggal_produksi" name="tanggal_produksi"
+                                <input type="date" id="tanggal_kadaluarsa" name="tanggal_kadaluarsa"
                                     class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:border-primary focus:outline-primary focus:ring-primary dark:text-white">
-                                @error('tanggal_produksi')
+                                @error('tanggal_kadaluarsa')
                                     <div class="text-red-500">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -187,6 +188,8 @@
             </div>
         </div>
     </div>
+
+
 
     <!-- Include script for modal functionality -->
     <script>
