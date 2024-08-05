@@ -19,61 +19,62 @@
             </nav>
         </header>
         <div class="w-full">
-            <div class="w-full h-2/3 relative flex items-center justify-center">
+            <div class="w-full h-[60vh] md:h-2/3  relative flex items-center justify-center">
                 <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/about-us-img-01.jpg" alt=""
-                    class="w-full h-2/3">
+                    class="w-full md:h-2/3 h-[60vh] object-cover">
                 <div class="flex flex-col gap-3 absolute mx-auto items-center justify-center max-w-4xl text-center">
                     <p class="text-primary">
                         OUR MISSION
                     </p>
-                    <h2 class="text-primary font-bold text-3xl">LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING ELIT, SED
+                    <h2 class="text-primary font-bold text-xl md:text-3xl">LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISCING
+                        ELIT, SED
                         DO TEMPOR
                         INCIDIDUNT UT.</h2>
                     <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/Dr.-Leigh.png"
                         class="w-56 -mt-13" alt="">
                 </div>
             </div>
-            <div class="w-full flex gap-10 items-center  mt-14">
+            <div class="w-full flex md:flex-row flex-col gap-10 items-center  md:mt-14">
                 <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/about-us-img-02.jpg" alt=""
-                    class="w-1/2 h-2/3">
+                    class="md:w-1/2 md:h-2/3 w-full h-fit">
                 <div class="flex flex-col gap-10">
                     <div class="flex flex-row gap-2 items-center">
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-icon-img-1.png"
-                            class="w-20 h-20" alt="">
+                            class="w-12 h-12 md:w-20 md:h-20" alt="">
                         <div class="flex flex-col gap-1 text-primary">
                             <h1 class="font-semibold">PREMIUM QUALITY
                             </h1>
-                            <p class="-mt-3">Non consectetur a erat nam at</p>
+                            <p class="-mt-3 text-sm md:text-base">Non consectetur a erat nam at</p>
                         </div>
                     </div>
                     <div class="flex flex-row gap-2 items-center">
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-icon-img-2.png"
-                            class="w-20 h-20" alt="">
+                            class="w-12 h-12 md:w-20 md:h-20" alt="">
                         <div class="flex flex-col gap-1 text-primary">
                             <h1 class="font-semibold">CRUELTY FREE
 
                             </h1>
-                            <p class="-mt-3">Non consectetur a erat nam at</p>
+                            <p class="-mt-3 text-sm md:text-base">Non consectetur a erat nam at</p>
                         </div>
                     </div>
                     <div class="flex flex-row gap-2 items-center">
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-icon-img-3.png"
-                            class="w-20 h-20" alt="">
+                            class="w-12 h-12 md:w-20 md:h-20" alt="">
                         <div class="flex flex-col gap-1 text-primary">
                             <h1 class="font-semibold">VEGAN PRODUCTS
                             </h1>
-                            <p class="-mt-3">Non consectetur a erat nam at</p>
+                            <p class="-mt-3 text-sm md:text-base">Non consectetur a erat nam at</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-full flex flex-col">
-                <div class="w-full items-center justify-center gap-4 flex" style="margin-top: 150px;">
+                <div class="w-full items-center justify-center gap-4 flex px-14 md:px-0" style="margin-top: 150px;">
                     <div class="flex flex-col gap-3 absolute mx-auto items-center justify-center max-w-4xl text-center">
-                        <p class="text-primary">
+                        <p class="text-primary md:text-base text-sm">
                             REVIEWS
                         </p>
-                        <h2 class="text-primary font-bold text-3xl -mt-3">WHAT OUR CUSTOMERS SAY
+                        <h2 class="text-primary font-bold text-xl md:text-3xl -mt-3">WHAT OUR CUSTOMERS SAY
                         </h2>
 
                     </div>
@@ -137,13 +138,13 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <div class="flex w-full mt-14">
+                <div class="flex flex-col md:flex-row w-full mt-0 md:mt-14">
                     <div class="w-fit relative items-center flex ">
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-img-3.jpg"
-                            alt="" class="w-full block">
+                            alt="" class="w-full block h-[40vh] md:h-fit object-cover">
                         <div class="flex flex-col gap-1 text-primary absolute h-fit w-2/3 px-10">
                             <p class="-mt-3">NEW LINE</p>
-                            <h1 class="font-semibold text-lg">INTENSE HYDRATATION
+                            <h1 class="font-semibold text-md md:text-lg">INTENSE HYDRATATION
                             </h1>
                             <p class=" leading-[100%]">Pharetra magna ac placerat vestibulum lect us ma uris dui
                                 accumsan sit amet
@@ -154,10 +155,10 @@
                     </div>
                     <div class="w-fit relative items-center flex ">
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-img-4.jpg"
-                            alt="" class="w-full block">
+                            alt="" class="w-full block h-[40vh] md:h-fit object-cover">
                         <div class="flex flex-col gap-1 text-primary absolute h-fit w-2/3 px-10">
-                            <p class="-mt-3">ONLINE SHOP</p>
-                            <h1 class="font-semibold text-lg">YOU CAN TEST OUR AMAZING
+                            <p class="-mt-3 ">ONLINE SHOP</p>
+                            <h1 class="font-semibold text-md md:text-lg">YOU CAN TEST OUR AMAZING
                                 FORMULA AS SOON AS TODAY
                                 WITOUT GOING TO THE STORE
                             </h1>
@@ -169,7 +170,7 @@
 
                 </div>
             </div>
-            <div class="w-full flex justify-between items-center px-20 my-14">
+            <div class="w-full md:flex grid grid-cols-3 gap-10 md:gap-0 justify-between items-center md:px-20 px-10 my-14">
                 <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/client-01.png" alt=""
                     class="w-24">
                 <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/client-02.png" alt=""
@@ -183,11 +184,10 @@
                 <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/client-06.png" alt=""
                     class="w-24">
             </div>
-
-            <div class="flex flex-row items-center w-full overflow-x-hidden h-fit ">
-                <div class="flex items-center justify-center w-1/2 h-fit">
-                    <div class="flex flex-col text-primary gap-4 mx-20">
-                        <h1 class="font-semibold text-3xl">LATEST NEWS FROM DR. LEIGH LABORATORY
+            <div class="flex flex-col-reverse md:flex-row items-center w-full overflow-x-hidden h-fit ">
+                <div class="flex items-center mt-10 md:mt-0  justify-center w-full md:w-1/2 h-fit">
+                    <div class="flex flex-col text-primary gap-4 mx-10 md:mx-20">
+                        <h1 class="font-semibold text-xl md:text-3xl">LATEST NEWS FROM DR. LEIGH LABORATORY
                         </h1>
                         <p class="-mt-3">Lorem ipsum dolor sit amet conse ctetur adipiscing elit, sed do eiusmod lorem
                             ipsum dolore amet in vivid tempor idunt.</p>
@@ -197,7 +197,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="flex flex-row items-center w-1/2 h-fit">
+                <div class="flex flex-row items-center w-full md:w-1/2 h-fit">
                     <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/05/about-us-img-02.jpg"
                         alt="" class="w-1/2 object-contain ">
                     <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/05/about-us-img-01.jpg"
@@ -211,14 +211,13 @@
                         <p class="text-primary">
                             ONLY THE BEST
                         </p>
-                        <h2 class="text-primary font-bold text-3xl -mt-3">TAKE CARE OF YOUR SKIN TODAY
+                        <h2 class="text-primary font-bold text-xl md:text-3xl -mt-3">TAKE CARE OF YOUR SKIN TODAY
                         </h2>
 
                     </div>
                 </div>
-                <div class="flex flex-row gap-10 mx-16 mt-20">
+                <div class="flex flex-col md:flex-row  gap-10 mx-16 mt-20">
                     <div class="flex flex-col gap-3 text-primary items-center justify-center w-fit text-center">
-
                         <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-icon-img-7.png"
                             alt="" class="w-24 h-24">
 
@@ -268,7 +267,8 @@
                 </div>
             </div>
 
-            <div class="flex w-full bg-[#EAF3FC] py-14 items-center justify-center mx-aut mt-20 gap-14">
+            <div
+                class="flex flex-col md:flex-row w-full bg-[#EAF3FC] py-14 items-center justify-center mx-aut mt-20 gap-14">
                 <div class="flex flex-row gap-3 w-fit items-center">
                     <img src="https://drleigh.qodeinteractive.com/wp-content/uploads/2023/04/h1-icon-img-11.png"
                         class="w-10 h-10" alt="">
@@ -317,21 +317,25 @@
 
         </div>
 
-        <footer class="w-full px-14 py-16 mx-auto mt-28 bg-primary">
-            <div class="w-full grid grid-cols-3 gap-x-5">
+        <footer class="w-full px-10 md:px-14 py-16 mx-auto mt-28 bg-primary">
+            <div
+                class="w-full flex flex-col md:grid md:grid-cols-3 gap-x-5 items-start justify-center md:items-center md:justify-center">
                 <div class="flex flex-col gap-2 flex-1">
                     <p href="" class=" text-4xl text-white font-bold">BELLE</p>
-                    <p class="italic text-xl text-white">Your beauty business solutions</p>
+                    <p class="italic text-md md:text-xl text-white">Your beauty business solutions</p>
                 </div>
                 <div class="flex flex-col gap-2 flex-1 w-full">
-                    <p href="" class=" text-xl text-white font-bold">Main Office :
+                    <p href="" class="text-md md:text-xl text-white font-bold">Main Office :
                         Panjang Jiwo Permai III/28
                         Surabaya - Indonesia</p>
-                    <p class="italic text-lg text-white w-[100px]">https://maps.app.goo.gl/tQTPpc356bb1n64C6</p>
+                    <p class="italic text-sm md:text-lg text-white w-[100px] ">https://maps.app.goo.gl/tQTPpc356bb1n64C6
+                    </p>
                 </div>
-                <div class="flex flex-col gap-2 flex-1 items-center justify-center">
-                    <p href="" class=" text-xl text-white font-bold">Customer care<br />+62838 4933 9756</p>
-                    <img src="{{ asset('assets/images/qrcode.png') }}" class="w-20 h-20" />
+                <div class="flex flex-col gap-2 flex-1 mt-3 md:mt-0 items-start md:items-center justify-center">
+                    <p href="" class="text-md md:text-xl text-white font-bold">Customer
+                        care<br /><span class="hidden md:block">+62838 4933 9756</span>
+                    </p>
+                    <img src="{{ asset('assets/images/qrcode.png') }}" class="w-32 h-32 md:w-20 md:h-20" />
                 </div>
             </div>
         </footer>

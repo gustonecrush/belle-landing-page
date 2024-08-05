@@ -35,6 +35,12 @@
             align-items: center;
         }
 
+        @media (max-width: 640px) {
+            .swiper-slide {
+                width: 100% !important;
+            }
+        }
+
         .swiper-slide img {
             display: block;
             width: 100%;
@@ -67,8 +73,26 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
+            breakpoints: {
+                // when window width is <= 640px
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                // when window width is <= 768px
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is <= 1024px
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
         });
     </script>
+
 </body>
 
 </html>

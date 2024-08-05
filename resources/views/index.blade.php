@@ -41,7 +41,36 @@
                 </a>
             </div>
             <div class="w-full">
-                <img src="{{ asset('assets/images/product.png') }}" class="flex-1" alt="">
+                <div class="swiper mySwiper mt-20">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="{{ asset('assets/images/product.png') }}" class="flex-1 h-[500px] w-[500px]"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
             </div>
         </section>
         <section class="w-full mx-auto h-fit">
