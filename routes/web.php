@@ -12,6 +12,7 @@ use App\Http\Controllers\PaketUmrahController;
 use App\Http\Controllers\PesawatController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
+use App\Models\Category;
 use App\Models\HasilProduksi;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $products = Product::all();
-    return view('index', compact('products'));
+    $categories = Category::all();
+    return view('index', compact('products', 'categories'));
 })->name('index');
 
 
@@ -44,8 +46,11 @@ Route::get('/contact-us', function () {
 
 Route::get('/products', function () {
     $products = Product::all();
-    return view('detail', compact('products'));
+    $categories = Category::all();
+    return view('detail', compact('products', 'categories'));
 })->name('detail');
+
+
 
 Route::get('/products/{id}', function ($id) {
     $products = Product::where('id', '=', $id)->with('category')->first();

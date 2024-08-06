@@ -10,6 +10,7 @@ use App\Models\HotelMekah;
 use App\Models\HotelMadinah;
 use App\Models\Pesawat;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -24,15 +25,27 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
-        Category::create($request->all());
+        $data = $request->all();
+        $data['id_admin'] = Auth::guard('admin')->user()->id;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('category_images', 'public');
+            $data['image'] = $path;
+        }
+
+        Category::create($data);
+
+
         return redirect()->route('admin.categories')->with('success', 'Category created successfully.');
     }
     public function update(Request $request)
     {
         $request->validate([
             'nama' => 'required|string|max:255',
+            'file_foto_produk' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $category = Category::findOrFail($request->id);

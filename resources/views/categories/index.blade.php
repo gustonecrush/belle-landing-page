@@ -28,6 +28,7 @@
                     <tr>
                         <th scope="col" class="px-6 py-3">No</th>
                         <th scope="col" class="px-6 py-3">Nama</th>
+                        <th scope="col" class="px-6 py-3">Image</th>
                         <th scope="col" class="px-6 py-3">Action</th>
                     </tr>
                 </thead>
@@ -36,13 +37,17 @@
                         <tr class="transition-all hover:bg-[#f9f9f9]">
                             <td class="px-6 py-4">{{ $index + 1 }}</td>
                             <td class="px-6 py-4">{{ $category->nama }}</td>
+                            <td class="px-6 py-4">
+                                @if ($category->image)
+                                    <img src="{{ asset('storage/' . $category->image) }}" alt="Foto Produk"
+                                        class="w-28 rounded-md h-28 object-cover">
+                                @else
+                                    Tidak ada gambar
+                                @endif
+                            </td>
 
                             <td class="px-6 py-4 flex gap-2">
-                                <button data-modal-target="edit-category-modal" data-modal-toggle="edit-category-modal"
-                                    data-category-id="{{ $category->id }}"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                                    <i class='bx bx-edit-alt'></i>Edit
-                                </button>
+
                                 <form action="{{ route('admin.categories.delete', $category) }}" method="POST"
                                     onsubmit="return confirm('Are you sure?');">
                                     @csrf
@@ -81,7 +86,7 @@
                     </button>
                 </div>
                 <div class="p-6 space-y-6">
-                    <form action="{{ route('admin.categories.store') }}" method="POST">
+                    <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="flex gap-2 w-full">
                             <div class="mb-4 w-full">
@@ -95,6 +100,13 @@
                                 @enderror
                             </div>
 
+                        </div>
+                        <div class="mb-4 w-full">
+                            <label for="image" class="block mb-2 font-medium text-gray-500 dark:text-white text-sm">File
+                                Foto Category
+                            </label>
+                            <input type="file" id="image" name="image"
+                                class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:border-primary focus:outline-primary focus:ring-primary dark:text-white">
                         </div>
 
                         <div class="flex items-center justify-end">

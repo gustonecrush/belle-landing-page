@@ -6,17 +6,35 @@
     <main class="w-full h-full bg-white">
         <header class="w-full bg-primary">
             <nav class="w-full flex items-center justify-between max-w-5xl mx-auto py-8">
-                <a href="" class="text-white text-4xl"><img src="{{ asset('assets/images/logo-belle-white.png') }}"
-                        class="h-14" /></a>
-                <ul class="text-white flex text-lg gap-9 font-medium tracking-tight">
+                <a href="/" class="text-white text-4xl">
+                    <img src="{{ asset('assets/images/logo-belle-white.png') }}" class="h-14" alt="Logo" />
+                </a>
+                <div class="md:hidden">
+                    <!-- Mobile menu button -->
+                    <button id="menu-button" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <ul id="menu" class="hidden md:flex text-white text-lg gap-9 font-medium tracking-tight">
                     <li><a class="cursor-pointer" href="/">Home</a></li>
-                    <li>
-                        <a class="cursor-pointer" href="/products">Products</a>
-                    </li>
+                    <li><a class="cursor-pointer" href="/products">Products</a></li>
                     <li><a class="cursor-pointer" href="/about-us">About Us</a></li>
                     <li><a class="cursor-pointer" href="/contact-us">Contact Us</a></li>
                 </ul>
             </nav>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden">
+                <ul class="text-white flex flex-col items-center text-lg gap-4 pb-10 md:pb-0 font-medium tracking-tight">
+                    <li><a class="cursor-pointer" href="/">Home</a></li>
+                    <li><a class="cursor-pointer" href="/products">Products</a></li>
+                    <li><a class="cursor-pointer" href="/about-us">About Us</a></li>
+                    <li><a class="cursor-pointer" href="/contact-us">Contact Us</a></li>
+                </ul>
+            </div>
         </header>
         <div class="w-full">
             <div class="w-full h-[60vh] md:h-2/3  relative flex items-center justify-center">
@@ -106,13 +124,14 @@
                     <p href="" class="text-md md:text-xl text-white font-bold">Main Office :
                         Panjang Jiwo Permai III/28
                         Surabaya - Indonesia</p>
-                    <p class="italic text-sm md:text-lg text-white w-[100px] ">https://maps.app.goo.gl/tQTPpc356bb1n64C6</p>
+                    <p class="italic text-sm md:text-lg text-white w-[100px] ">https://maps.app.goo.gl/tQTPpc356bb1n64C6
+                    </p>
                 </div>
                 <div class="flex flex-col gap-2 flex-1 mt-3 md:mt-0 items-start md:items-center justify-center">
                     <p href="" class="text-md md:text-xl text-white font-bold">Customer
                         care<br /><span class="hidden md:block">+62838 4933 9756</span>
                     </p>
-                    <img src="{{ asset('assets/images/qrcode.png') }}" class="w-32 h-32 md:w-20 md:h-20" />
+                    <img src="{{ asset('assets/images/qr-code.png') }}" class="w-32 h-32 md:w-20 md:h-20" />
                 </div>
             </div>
         </footer>
